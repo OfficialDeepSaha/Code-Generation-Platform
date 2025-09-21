@@ -114,21 +114,17 @@ export default function Login() {
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
           
           <CardHeader className="relative text-center pb-8 pt-8 overflow-hidden">
-            {/* Animated Sidebar Gradients */}
-            <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-400 via-purple-500 via-pink-500 to-emerald-400 animate-pulse" style={{animationDuration: '3s'}} />
-            <div className="absolute right-0 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-400 via-pink-500 via-purple-500 to-cyan-400 animate-pulse" style={{animationDuration: '3s', animationDelay: '1.5s'}} />
+            {/* Top Border Gradient Effect */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-purple-500 via-pink-500 to-emerald-400 animate-pulse" style={{animationDuration: '3s'}} />
+            <div className="absolute top-0 left-0 right-0 h-3 bg-gradient-to-b from-cyan-400/20 via-purple-500/10 to-transparent animate-pulse" style={{animationDuration: '4s', animationDelay: '1s'}} />
             
-            {/* Enhanced Sidebar Effects */}
-            <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-cyan-400/20 via-purple-500/10 to-transparent animate-pulse" style={{animationDuration: '4s'}} />
-            <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-emerald-400/20 via-pink-500/10 to-transparent animate-pulse" style={{animationDuration: '4s', animationDelay: '2s'}} />
+            {/* Top Border Floating Particles */}
+            <div className="absolute top-2 left-8 w-1 h-1 bg-cyan-400/80 rounded-full animate-bounce" style={{animationDelay: '0s', animationDuration: '2s'}} />
+            <div className="absolute top-1 left-20 w-0.5 h-0.5 bg-purple-400/60 rounded-full animate-ping" style={{animationDelay: '1s', animationDuration: '3s'}} />
+            <div className="absolute top-2 right-8 w-1 h-1 bg-pink-400/80 rounded-full animate-bounce" style={{animationDelay: '0.5s', animationDuration: '2.5s'}} />
+            <div className="absolute top-1 right-20 w-0.5 h-0.5 bg-emerald-400/60 rounded-full animate-ping" style={{animationDelay: '1.5s', animationDuration: '3s'}} />
             
-            {/* Floating Sidebar Particles */}
-            <div className="absolute left-2 top-6 w-1 h-1 bg-cyan-400/80 rounded-full animate-bounce" style={{animationDelay: '0s', animationDuration: '2s'}} />
-            <div className="absolute left-4 top-16 w-0.5 h-0.5 bg-purple-400/60 rounded-full animate-ping" style={{animationDelay: '1s', animationDuration: '3s'}} />
-            <div className="absolute right-2 top-10 w-1 h-1 bg-pink-400/80 rounded-full animate-bounce" style={{animationDelay: '0.5s', animationDuration: '2.5s'}} />
-            <div className="absolute right-4 top-20 w-0.5 h-0.5 bg-emerald-400/60 rounded-full animate-ping" style={{animationDelay: '1.5s', animationDuration: '3s'}} />
-            
-            <CardTitle className="relative text-3xl font-bold text-white mb-2 z-10">
+            <CardTitle className="relative text-3xl font-bold text-white mb-2 z-10 mt-4">
               Welcome Back
             </CardTitle>
             <CardDescription className="relative text-white/70 text-lg z-10">
@@ -143,10 +139,6 @@ export default function Login() {
                 <div className="w-2 h-2 bg-pink-400/60 rounded-full animate-pulse" style={{animationDelay: '1s'}} />
               </div>
             </div>
-            
-            {/* Gradient Accent Lines */}
-            <div className="absolute left-6 top-1/2 w-6 h-px bg-gradient-to-r from-cyan-400/60 to-transparent transform -translate-y-1/2 animate-pulse" style={{animationDelay: '0s', animationDuration: '2s'}} />
-            <div className="absolute right-6 top-1/2 w-6 h-px bg-gradient-to-l from-emerald-400/60 to-transparent transform -translate-y-1/2 animate-pulse" style={{animationDelay: '1s', animationDuration: '2s'}} />
           </CardHeader>
           
           <CardContent className="relative space-y-8 pb-8">
