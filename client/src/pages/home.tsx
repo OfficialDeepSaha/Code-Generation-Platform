@@ -172,7 +172,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-18 py-2">
+          <div className="flex justify-between items-center h-16 py-2">
             {/* Enhanced Logo Section */}
             <div className="flex items-center group cursor-pointer">
               <div className="relative mr-4">
@@ -181,12 +181,12 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-pink-500 rounded-2xl blur-lg opacity-30 group-hover:opacity-60 transition-all duration-500 animate-pulse" style={{animationDuration: '3s'}} />
                 
                 {/* Logo Container */}
-                <div className="relative inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-2xl transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-2xl border border-white/20">
+                <div className="relative inline-flex items-center justify-center w-10 h-10 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-xl transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-2xl border border-white/20">
                   {/* Inner Glow */}
                   <div className="absolute inset-1 bg-gradient-to-br from-white/20 to-transparent rounded-xl" />
                   
                   <svg
-                    className="w-8 h-8 text-white drop-shadow-lg transform group-hover:scale-110 transition-transform duration-300"
+                    className="w-6 h-6 text-white drop-shadow-lg transform group-hover:scale-110 transition-transform duration-300"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -203,15 +203,15 @@ export default function Home() {
                   <div className="absolute -top-1 -right-1 w-2 h-2 text-yellow-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-ping">
                     ✨
                   </div>
-                  <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 text-cyan-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" style={{animationDelay: '0.5s'}}>
+                  {/* <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 text-cyan-300 opacity-70 group-hover:opacity-100 transition-opacity duration-300 animate-pulse" style={{animationDelay: '0.5s'}}>
                     ⭐
-                  </div>
+                  </div> */}
                 </div>
               </div>
               
               {/* Enhanced Brand Name */}
               <div className="flex flex-col">
-                <h1 className="text-3xl font-black bg-gradient-to-r from-cyan-400 via-purple-400 via-pink-400 to-emerald-400 bg-clip-text text-transparent group-hover:scale-105 transition-all duration-500 tracking-tight">
+                <h1 className="text-2xl font-black bg-gradient-to-r from-cyan-400 via-purple-400 via-pink-400 to-emerald-400 bg-clip-text text-transparent group-hover:scale-105 transition-all duration-500 tracking-tight">
                   CodeCrafter
                 </h1>
                 <div className="flex items-center space-x-1 mt-0.5">
@@ -225,15 +225,15 @@ export default function Home() {
             {/* Navigation Items */}
             <div className="hidden md:flex items-center space-x-8">
               <nav className="flex items-center space-x-6">
-                <a href="#features" className="relative text-white/80 hover:text-white transition-colors duration-300 font-medium group">
+                <a href="#features" className="relative text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium group">
                   <span>Features</span>
                   <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 group-hover:w-full transition-all duration-300" />
                 </a>
-                <a href="#about" className="relative text-white/80 hover:text-white transition-colors duration-300 font-medium group">
+                <a href="#about" className="relative text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium group">
                   <span>About</span>
                   <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 group-hover:w-full transition-all duration-300" />
                 </a>
-                <a href="#docs" className="relative text-white/80 hover:text-white transition-colors duration-300 font-medium group">
+                <a href="#docs" className="relative text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium group">
                   <span>Docs</span>
                   <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-400 to-emerald-400 group-hover:w-full transition-all duration-300" />
                 </a>
@@ -241,20 +241,20 @@ export default function Home() {
             </div>
 
             {/* Enhanced User Menu */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center justify-end space-x-4 min-w-0">
               {/* Status Indicator */}
               <div className="hidden sm:flex items-center space-x-2 px-3 py-1.5 bg-white/5 rounded-full border border-white/10 backdrop-blur-sm">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                 <span className="text-xs font-medium text-white/80">Online</span>
               </div>
               
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="relative h-12 w-12 rounded-full p-0 hover:bg-white/10 transition-all duration-300 group">
+                  <Button variant="ghost" className="relative h-10 w-10 rounded-full p-0 hover:bg-white/10 transition-all duration-300 group">
                     {/* Avatar Glow Effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-pink-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
                     
-                    <Avatar className="h-11 w-11 ring-2 ring-white/20 group-hover:ring-white/40 transition-all duration-300 group-hover:scale-105">
+                    <Avatar className="h-9 w-9 ring-2 ring-white/20 group-hover:ring-white/40 transition-all duration-300 group-hover:scale-105">
                       <AvatarImage src={authData.user?.avatar} alt={authData.user?.name} />
                       <AvatarFallback className="bg-gradient-to-br from-cyan-500 via-purple-500 to-pink-500 text-white font-bold text-lg border border-white/20">
                         {authData.user?.name?.charAt(0).toUpperCase()}
@@ -262,7 +262,7 @@ export default function Home() {
                     </Avatar>
                     
                     {/* Online Status Dot */}
-                    <div className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-green-400 rounded-full border-2 border-white/20 animate-pulse" />
+                    <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-400 rounded-full border-2 border-white/20 animate-pulse" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-64 bg-black/80 backdrop-blur-xl border border-white/10 shadow-2xl" align="end" forceMount>
