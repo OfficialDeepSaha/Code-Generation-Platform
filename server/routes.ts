@@ -3,10 +3,41 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { generateCodeRequestSchema } from "@shared/schema";
 import { generateCode } from "./services/openai";
+import passport, { requireAuth } from "./auth";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Generate code endpoint
-  app.post("/api/generate", async (req, res) => {
+  // Authentication routes
+  app.get('/auth/google', passport.authenticate('google', {
+    scope: ['profile', 'email']
+  }));
+
+  app.get('/auth/google/callback', 
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    (req, res) => {
+      // Successful authentication, redirect to home
+      res.redirect('/');
+    }
+  );
+
+  app.post('/auth/logout', (req, res) => {
+    req.logout((err) => {
+      if (err) {
+        return res.status(500).json({ message: 'Logout failed' });
+      }
+      res.json({ message: 'Logged out successfully' });
+    });
+  });
+
+  app.get('/api/user', (req, res) => {
+    if (req.isAuthenticated()) {
+      res.json({ user: req.user, authenticated: true });
+    } else {
+      res.json({ user: null, authenticated: false });
+    }
+  });
+
+  // Generate code endpoint (protected)
+  app.post("/api/generate", requireAuth, async (req, res) => {
     try {
       const validatedData = generateCodeRequestSchema.parse(req.body);
       
@@ -19,6 +50,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         framework: validatedData.framework,
         generatedCode: result.files,
         explanation: result.explanation,
+        userId: (req.user as any)?.id,
       });
 
       res.json({
@@ -43,11 +75,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get recent generations
-  app.get("/api/generations", async (req, res) => {
+  // Get recent generations (protected)
+  app.get("/api/generations", requireAuth, async (req, res) => {
     try {
       const limit = req.query.limit ? parseInt(req.query.limit as string) : 10;
-      const generations = await storage.getCodeGenerations(limit);
+      const userId = (req.user as any)?.id;
+      const generations = await storage.getCodeGenerations(limit, userId);
       
       res.json(generations.map(gen => ({
         id: gen.id,
@@ -62,8 +95,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get specific generation
-  app.get("/api/generations/:id", async (req, res) => {
+  // Get specific generation (protected)
+  app.get("/api/generations/:id", requireAuth, async (req, res) => {
     try {
       const generation = await storage.getCodeGeneration(req.params.id);
       
