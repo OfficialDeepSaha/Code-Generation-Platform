@@ -51,6 +51,7 @@ export default function CodeGenerator({ onGenerationComplete }: CodeGeneratorPro
 
   const form = useForm<GenerateCodeRequest>({
     resolver: zodResolver(generateCodeRequestSchema),
+    mode: "onChange", // Enable real-time validation
     defaultValues: {
       prompt: "",
       language: "JavaScript",
@@ -139,7 +140,14 @@ export default function CodeGenerator({ onGenerationComplete }: CodeGeneratorPro
                           data-testid="input-prompt"
                         />
                         <div className="absolute bottom-3 right-3">
-                          <span className="text-xs text-muted-foreground" data-testid="text-char-count">
+                          <span 
+                            className={`text-xs ${
+                              charCount > 500 
+                                ? "text-destructive font-medium" 
+                                : "text-muted-foreground"
+                            }`} 
+                            data-testid="text-char-count"
+                          >
                             {charCount}/500
                           </span>
                         </div>
@@ -203,7 +211,7 @@ export default function CodeGenerator({ onGenerationComplete }: CodeGeneratorPro
             <div className="flex justify-end">
               <Button
                 type="submit"
-                disabled={generateMutation.isPending || !form.watch("prompt").trim()}
+                disabled={generateMutation.isPending || !form.formState.isValid || !form.watch("prompt").trim()}
                 className="px-8 py-3 font-medium flex items-center space-x-2"
                 data-testid="button-generate"
               >
